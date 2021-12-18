@@ -37,7 +37,31 @@ const mappedSessions = Object.values(sessionsData.sessionProducts)
     }).join(" ; ")
   }))
 
-console.log("mappedSessions: ", mappedSessions[3]);
-parseToCsv(mappedSessions, "sessions.csv")
+// console.log("mappedSessions: ", mappedSessions[3]);
+// parseToCsv(mappedSessions, "sessions.csv")
+
+// Speakers
+const mappedSpeakers = Object.values(speakersData.speakers)
+  .map(({
+    firstName, lastName, company, 
+    title, biography, facebookUrl,
+    twitterUrl, linkedInUrl, profileImageUri, websites
+  }) => ({
+    firstName,
+    lastName,
+    company,
+    title,
+    biography, 
+    facebookUrl,
+    twitterUrl, 
+    linkedInUrl, 
+    profileImageUri, 
+    links : Object.values(websites).map(websiteObject => {
+     return websiteObject.relatedUrlName + ' - ' + websiteObject.relatedUrl
+    }).join(" ; ")
+  }))
+
+console.log("mappedSpeakers: ", mappedSpeakers[1]);
+parseToCsv(mappedSpeakers, "speakers.csv")
 
 
