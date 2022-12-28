@@ -1,5 +1,3 @@
 Hello
 
-1 - Eat lunch
-2 - do NOEW stuff
-3 - select UNO pics
+1 - do NOEW stuff
